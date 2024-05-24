@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Amvflix</string>
+    <string name="signup">Kayıt Ol</string>
+    <string name="signup_info">Kayıt olmak için aşağıdaki bilgileri eksiksiz doldurunuz.</string>
+    <string name="name">Adınız</string>
+    <string name="surname">Soyadınız</string>
+    <string name="mail">Mail adresiniz</string>
+    <string name="password">Şifreniz</string>
+    <string name="password_control">Şifrenizi tekrar giriniz</string>
+    <string name="account_yes">Zaten bir hesabınız var mı?</string>
+    <string name="login">Giriş Yap</string>
+    <string name="account_no">Kayıtlı bir hesabınız yok mu?</string>
+    <string name="welcome">Aramıza hoş geldiniz!</string>
+    <string name="select_username">Lütfen uygulamada kullanmak için kendinize bir kullanıcı adı seçin.</string>
+    <string name="username">Kullanıcı adı</string>
+    <string name="continue_">Devam Et</string>
+    <string name="home">Ana Sayfa</string>
+    <string name="categories">Kategoriler</string>
+    <string name="my_lists">Listelerim</string>
+    <string name="username_rules">* Sadece harfler, rakamlar, nokta ve alt çizgi kullanabilirsiniz. Diğer özel karakterler kullanılamaz.\n
+    * Boşluk veya emoji kullanmayın.\n
+    * En fazla 30 karakter kullanabilirsiniz.\n
+    * Kullanıcı adınızın başkaları tarafından kullanılmadığından emin olun.\n
+    * Uygunsuz veya saldırgan içerik içeren kullanıcı adları kabul edilmez.</string>
+    <string name="action">Action</string>
+    <string name="adventure">Adventure</string>
+    <string name="cars">Cars</string>
+    <string name="comedy">Comedy</string>
+    <string name="dark_fantasy">Dark Fantasy</string>
+    <string name="demon">Demon</string>
+    <string name="detective">Detective</string>
+    <string name="drama">Drama</string>
+    <string name="ecchi">Ecchi</string>
+    <string name="fantasy">Fantasy</string>
+    <string name="game">Game</string>
+    <string name="historical">Historical</string>
+    <string name="horror">Horror</string>
+    <string name="josei">Josei</string>
+    <string name="magic">Magic</string>
+    <string name="martial_arts">Martial Arts</string>
+    <string name="mecha">Mecha</string>
+    <string name="music">Music</string>
+    <string name="mystery">Mystery</string>
+    <string name="parody">Parody</string>
+    <string name="psychological">Psychological</string>
+    <string name="romance">Romance</string>
+    <string name="samurai">Samurai</string>
+    <string name="school">School</string>
+    <string name="sci_fi">Sci-Fi</string>
+    <string name="science">Science</string>
+    <string name="seinen">Seinen</string>
+    <string name="shoujo">Shoujo</string>
+    <string name="shounen">Shounen</string>
+    <string name="slice_of_life">Slice of Life</string>
+    <string name="space">Space</string>
+    <string name="sport">Sport</string>
+    <string name="supernatural_powers">Supernatural Powers</string>
+    <string name="supernatural">Supernatural</string>
+    <string name="super_power">Super Power</string>
+    <string name="thriller">Thriller</string>
+    <string name="vampire">Vampire</string>
+    <string name="yaoi">Yaoi</string>
+    <string name="yuri">Yuri</string>
+    <string name="description">Konusu</string>
+</resources>

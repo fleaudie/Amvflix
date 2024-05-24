@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/signUpFragment">
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.fleaudie.amvflix.view.SignUpFragment"
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.fleaudie.amvflix.view.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_usernameFragment"
+            app:destination="@id/usernameFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/usernameFragment"
+        android:name="com.fleaudie.amvflix.view.UsernameFragment"
+        android:label="UsernameFragment" >
+        <action
+            android:id="@+id/action_usernameFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.fleaudie.amvflix.view.FeedFragment"
+        android:label="FeedFragment" >
+        <action
+            android:id="@+id/action_feedFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_categoriesFragment2"
+            app:destination="@id/categoriesFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_myListFragment2"
+            app:destination="@id/myListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.fleaudie.amvflix.view.CategoriesFragment"
+        android:label="CategoriesFragment" >
+        <action
+            android:id="@+id/action_categoriesFragment2_to_feedFragment"
+            app:destination="@id/feedFragment" />
+        <action
+            android:id="@+id/action_categoriesFragment2_to_myListFragment2"
+            app:destination="@id/myListFragment" />
+        <action
+            android:id="@+id/action_categoriesFragment_to_categoryListFragment"
+            app:destination="@id/categoryListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myListFragment"
+        android:name="com.fleaudie.amvflix.view.MyListFragment"
+        android:label="MyListFragment" >
+        <action
+            android:id="@+id/action_myListFragment2_to_feedFragment"
+            app:destination="@id/feedFragment" />
+        <action
+            android:id="@+id/action_myListFragment2_to_categoriesFragment2"
+            app:destination="@id/categoriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryListFragment"
+        android:name="com.fleaudie.amvflix.view.CategoryListFragment"
+        android:label="CategoryListFragment" >
+        <action
+            android:id="@+id/action_categoryListFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
+        <argument
+            android:name="genreName"
+            app:argType="string" />
+        <argument android:name="imageUrl" />
+        <action
+            android:id="@+id/action_categoryListFragment_to_animeDetailFragment"
+            app:destination="@id/animeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/animeDetailFragment"
+        android:name="com.fleaudie.amvflix.view.AnimeDetailFragment"
+        android:label="AnimeDetailFragment" >
+        <argument
+            android:name="animeName"
+            app:argType="string" />
+    </fragment>
+</navigation>

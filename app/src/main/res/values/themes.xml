@@ -1,0 +1,7 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.Amvflix" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/picton_blue</item>
+    </style>
+
+    <style name="Theme.Amvflix" parent="Base.Theme.Amvflix" />
+</resources>

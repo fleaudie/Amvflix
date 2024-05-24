@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "302920892003",
+    "project_id": "amvflix-1e540",
+    "storage_bucket": "amvflix-1e540.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302920892003:android:35ad01632ef9e39373c256",
+        "android_client_info": {
+          "package_name": "com.fleaudie.amvflix"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgI5Z7gRkd0FsXShkn1ZVwMnYT_4QlTNQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

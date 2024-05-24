@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="black_theme">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_theme">#FFFFFFFF</color>
+    <color name="water">#C8E7FF</color>
+    <color name="ocean_blue">#3F37C9</color>
+    <color name="lavender_blue">#D0D1FF</color>
+    <color name="metallic_violet">#480CA8</color>
+    <color name="mauve">#E5B3FE</color>
+    <color name="byzantine">#B5179E</color>
+    <color name="warning">#FF0000</color>
+    <color name="violet_ryb">#7209B7</color>
+    <color name="blueberry">#4895EF</color>
+    <color name="shampoo">#FFCBF2</color>
+    <color name="brilliant_lavender">#F3C4FB</color>
+    <color name="diamond">#C0FDFF</color>
+    <color name="electric_pink">#F72585</color>
+    <color name="pixie_powder">#3A0CA3</color>
+    <color name="ultramarine_blue">#4361EE</color>
+    <color name="picton_blue">#4CC9F0</color>
+    <color name="hint">#aaaaaa</color>
+</resources>

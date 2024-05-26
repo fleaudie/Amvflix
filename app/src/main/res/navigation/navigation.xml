@@ -75,6 +75,9 @@
         <action
             android:id="@+id/action_myListFragment2_to_categoriesFragment2"
             app:destination="@id/categoriesFragment" />
+        <action
+            android:id="@+id/action_myListFragment_to_listDetailFragment"
+            app:destination="@id/listDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/categoryListFragment"
@@ -97,6 +100,17 @@
         android:label="AnimeDetailFragment" >
         <argument
             android:name="animeName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/listDetailFragment"
+        android:name="com.fleaudie.amvflix.view.ListDetailFragment"
+        android:label="ListDetailFragment" >
+        <action
+            android:id="@+id/action_listDetailFragment_to_myListFragment"
+            app:destination="@id/myListFragment" />
+        <argument
+            android:name="listName"
             app:argType="string" />
     </fragment>
 </navigation>

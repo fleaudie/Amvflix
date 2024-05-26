@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.fleaudie.amvflix.data.model.AnimeList
 import com.fleaudie.amvflix.data.model.AnimeListResponse
 import com.fleaudie.amvflix.repositories.AnimeListRepository
 import dagger.hilt.android.lifecycle.HiltViewModel

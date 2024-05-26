@@ -9,7 +9,106 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white_theme">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAddList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:src="@drawable/add_button"
+            app:backgroundTint="@color/brilliant_lavender"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/button"
+            android:focusable="true" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/my_lists"
+                    android:textAllCaps="true"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardMyFav"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    app:cardBackgroundColor="@color/white_theme"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView10">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/my_lists_bg">
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="30dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/favorite"
+                            app:tint="@color/byzantine"
+                            android:contentDescription="@string/image"/>
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/favourites"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                            app:layout_constraintStart_toEndOf="@+id/imageView4"
+                            app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcyMyList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardMyFav" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

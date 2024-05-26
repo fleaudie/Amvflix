@@ -1,7 +1,6 @@
 package com.fleaudie.amvflix.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.fleaudie.amvflix.R
 import com.fleaudie.amvflix.adapters.CategoriesAdapter
 import com.fleaudie.amvflix.data.model.GenreItem
@@ -36,7 +35,7 @@ class CategoriesFragment : Fragment() {
 
         adapter = CategoriesAdapter(requireContext(), mutableListOf())
         binding.categoryRcy.adapter = adapter
-        val layoutManager = GridLayoutManager(requireContext(), 3)
+        val layoutManager = LinearLayoutManager(requireContext())
         binding.categoryRcy.layoutManager = layoutManager
 
         adapter.setOnItemClickListener { category ->

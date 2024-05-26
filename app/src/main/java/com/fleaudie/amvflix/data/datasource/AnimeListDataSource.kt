@@ -2,7 +2,6 @@ package com.fleaudie.amvflix.data.datasource
 
 import com.fleaudie.amvflix.data.model.AnimeList
 import com.fleaudie.amvflix.data.model.AnimeListResponse
-import com.fleaudie.amvflix.data.model.GenreItem
 import com.fleaudie.amvflix.data.retrofit.AnimeListApiService
 
 class AnimeListDataSource(private var apiService : AnimeListApiService) {

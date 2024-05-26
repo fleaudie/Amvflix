@@ -32,7 +32,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/category_bg_empty" />
+                    app:srcCompat="@drawable/category_bg_empty"
+                    android:contentDescription="@string/image" />
 
                 <TextView
                     android:id="@+id/txtTagName"
@@ -44,7 +45,6 @@
                     android:paddingTop="3dp"
                     android:paddingEnd="10dp"
                     android:paddingBottom="3dp"
-                    android:text="TextView"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="@+id/imgTagPhoto"
                     app:layout_constraintStart_toStartOf="@+id/imgTagPhoto"

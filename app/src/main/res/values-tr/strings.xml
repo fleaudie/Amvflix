@@ -18,49 +18,15 @@
     <string name="home">Ana Sayfa</string>
     <string name="categories">Kategoriler</string>
     <string name="my_lists">Listelerim</string>
-    <string name="username_rules">* Sadece harfler, rakamlar, nokta ve alt çizgi kullanabilirsiniz. Diğer özel karakterler kullanılamaz.\n
-    * Boşluk veya emoji kullanmayın.\n
-    * En fazla 30 karakter kullanabilirsiniz.\n
-    * Kullanıcı adınızın başkaları tarafından kullanılmadığından emin olun.\n
-    * Uygunsuz veya saldırgan içerik içeren kullanıcı adları kabul edilmez.</string>
-    <string name="action">Action</string>
-    <string name="adventure">Adventure</string>
-    <string name="cars">Cars</string>
-    <string name="comedy">Comedy</string>
-    <string name="dark_fantasy">Dark Fantasy</string>
-    <string name="demon">Demon</string>
-    <string name="detective">Detective</string>
-    <string name="drama">Drama</string>
-    <string name="ecchi">Ecchi</string>
-    <string name="fantasy">Fantasy</string>
-    <string name="game">Game</string>
-    <string name="historical">Historical</string>
-    <string name="horror">Horror</string>
-    <string name="josei">Josei</string>
-    <string name="magic">Magic</string>
-    <string name="martial_arts">Martial Arts</string>
-    <string name="mecha">Mecha</string>
-    <string name="music">Music</string>
-    <string name="mystery">Mystery</string>
-    <string name="parody">Parody</string>
-    <string name="psychological">Psychological</string>
-    <string name="romance">Romance</string>
-    <string name="samurai">Samurai</string>
-    <string name="school">School</string>
-    <string name="sci_fi">Sci-Fi</string>
-    <string name="science">Science</string>
-    <string name="seinen">Seinen</string>
-    <string name="shoujo">Shoujo</string>
-    <string name="shounen">Shounen</string>
-    <string name="slice_of_life">Slice of Life</string>
-    <string name="space">Space</string>
-    <string name="sport">Sport</string>
-    <string name="supernatural_powers">Supernatural Powers</string>
-    <string name="supernatural">Supernatural</string>
-    <string name="super_power">Super Power</string>
-    <string name="thriller">Thriller</string>
-    <string name="vampire">Vampire</string>
-    <string name="yaoi">Yaoi</string>
-    <string name="yuri">Yuri</string>
     <string name="description">Konusu</string>
+    <string name="author">Yazar</string>
+    <string name="characters">Karakterler</string>
+    <string name="genre">Tür</string>
+    <string name="release_date">Çıkış Tarihi</string>
+    <string name="remove_anime">Animeyi Kaldır</string>
+    <string name="remove_anime_from_list">Bu animeyi listeden kaldırmak istediğinizden emin misiniz?</string>
+    <string name="yes">Evet</string>
+    <string name="no">Hayır</string>
+    <string name="list_name_no_null">Liste adı boş olamaz</string>
+    <string name="remove_list">Listeyi kaldırmak istediğinizden emin misiniz?</string>
 </resources>

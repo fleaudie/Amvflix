@@ -2,9 +2,11 @@ package com.fleaudie.amvflix.di
 
 import com.fleaudie.amvflix.data.datasource.AnimeListDataSource
 import com.fleaudie.amvflix.data.datasource.AuthDataSource
+import com.fleaudie.amvflix.data.datasource.WatchListDataSource
 import com.fleaudie.amvflix.data.retrofit.AnimeListApiService
 import com.fleaudie.amvflix.repositories.AnimeListRepository
 import com.fleaudie.amvflix.repositories.AuthRepository
+import com.fleaudie.amvflix.repositories.WatchListRepository
 import com.fleaudie.amvflix.viewmodel.SignUpViewModel
 import dagger.Module
 import dagger.Provides
@@ -56,6 +58,18 @@ object AppModule {
     @Provides
     fun provideAnimeRepository(dataSource: AnimeListDataSource): AnimeListRepository {
         return AnimeListRepository(dataSource)
+    }
+
+    @Singleton
+    @Provides
+    fun provideWatchListDataSource(): WatchListDataSource{
+        return WatchListDataSource()
+    }
+
+    @Singleton
+    @Provides
+    fun provideWatchListRepository(dataSource: WatchListDataSource): WatchListRepository {
+        return WatchListRepository(dataSource)
     }
 
 }

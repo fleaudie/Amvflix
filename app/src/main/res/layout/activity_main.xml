@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawer_layout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
@@ -15,49 +14,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="67dp"
-                    android:layout_height="71dp"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:logo="@drawable/menu_icon" />
-
-                <androidx.fragment.app.FragmentContainerView
-                    android:id="@+id/navHostFragment"
-                    android:name="androidx.navigation.fragment.NavHostFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:defaultNavHost="true"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/toolbar"
-                    app:navGraph="@navigation/navigation" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
-
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/navHostFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:layout_marginEnd="70dp"
-            app:headerLayout="@layout/nav_header"
-            app:menu="@menu/side_menu" >
-
-        </com.google.android.material.navigation.NavigationView>
-
-    </androidx.drawerlayout.widget.DrawerLayout>
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:navGraph="@navigation/navigation" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

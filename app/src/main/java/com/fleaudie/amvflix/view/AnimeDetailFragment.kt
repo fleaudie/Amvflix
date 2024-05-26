@@ -1,27 +1,37 @@
 package com.fleaudie.amvflix.view
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowInsets
+import android.view.WindowInsetsController
 import android.webkit.WebChromeClient
 import android.webkit.WebViewClient
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.PopupWindow
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.fleaudie.amvflix.GradientRoundedTransformation
+import com.fleaudie.amvflix.glide.GradientRoundedTransformation
 import com.fleaudie.amvflix.R
 import com.fleaudie.amvflix.adapters.ImagePagerAdapter
+import com.fleaudie.amvflix.adapters.ListSelectionAdapter
 import com.fleaudie.amvflix.databinding.FragmentAnimeDetailBinding
+import com.fleaudie.amvflix.databinding.PopupAddToListBinding
 import com.fleaudie.amvflix.viewmodel.AnimeDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Timer
@@ -58,10 +68,10 @@ class AnimeDetailFragment : Fragment() {
         viewModel.animeDetail.observe(viewLifecycleOwner) { animeDetail ->
             binding.apply {
                 txtAnimeName.text = animeDetail.animeName
-                txtAuthor.text = "Yazar: ${animeDetail.author}"
-                txtCharacters.text = "Karakterler: ${animeDetail.characters.joinToString(", ")} "
-                txtTags.text = "Tür: ${animeDetail.tags.joinToString(", ")} "
-                txtReleaseDate.text = "Çıkış Tarihi: ${animeDetail.year} "
+                txtAuthor.text = "${getString(R.string.author)}: ${animeDetail.author}"
+                txtCharacters.text = "${getString(R.string.characters)}: ${animeDetail.characters.joinToString(", ")} "
+                txtTags.text = "${getString(R.string.genre)}: ${animeDetail.tags.joinToString(", ")} "
+                txtReleaseDate.text = "${getString(R.string.release_date)}: ${animeDetail.year} "
                 txtDescription.text = animeDetail.description
 
                 val requestOptions = RequestOptions().transform(GradientRoundedTransformation(50f))
@@ -116,8 +126,41 @@ class AnimeDetailFragment : Fragment() {
                 })
                 startAutoScroll()
 
+                btnAddToList.setOnClickListener {
+                    showAddToListPopup(animeDetail.animeName, animeDetail.animeLogo)
+                }
             }
         }
+    }
+
+    private fun showAddToListPopup(animeName: String, animeLogo: String) {
+        val inflater = LayoutInflater.from(context)
+        val popupBinding = PopupAddToListBinding.inflate(inflater, null, false)
+        val view = popupBinding.root
+
+        val popupWindow = PopupWindow(
+            view,
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            true
+        )
+
+        val recyclerView = popupBinding.rcyListSelection
+        val layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = layoutManager
+
+        val listAdapter = ListSelectionAdapter(viewModel.watchLists.value ?: emptyList()) { listName ->
+            viewModel.addAnimeToList(animeName, animeLogo,listName) { success, error ->
+                if (success) {
+                    popupWindow.dismiss()
+                } else {
+                    Toast.makeText(context, "Anime could not be added to the list: $error", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+        recyclerView.adapter = listAdapter
+
+        popupWindow.showAtLocation(binding.root, Gravity.CENTER, 0, 0)
     }
 
     private fun startAutoScroll() {
@@ -126,7 +169,7 @@ class AnimeDetailFragment : Fragment() {
             override fun run() {
                 handler.post {
                     var nextPage = binding.viewPagerAnimeScene.currentItem + 1
-                    if (nextPage == imagePagerAdapter.getCount()) {
+                    if (nextPage == imagePagerAdapter.count) {
                         nextPage = 0
                     }
                     binding.viewPagerAnimeScene.setCurrentItem(nextPage, true)
@@ -152,6 +195,7 @@ class AnimeDetailFragment : Fragment() {
     }
 
     private inner class MyWebChromeClient : WebChromeClient() {
+        @RequiresApi(Build.VERSION_CODES.R)
         override fun onShowCustomView(view: View?, callback: CustomViewCallback?) {
             if (customView != null) {
                 callback?.onCustomViewHidden()
@@ -168,19 +212,20 @@ class AnimeDetailFragment : Fragment() {
                     ViewGroup.LayoutParams.MATCH_PARENT
                 )
             )
-            requireActivity().window.decorView.systemUiVisibility = (
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                            or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            or View.SYSTEM_UI_FLAG_FULLSCREEN
-                            or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                    )
+
+            requireActivity().window.insetsController?.let { controller ->
+                controller.hide(WindowInsets.Type.systemBars())
+                controller.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            }
         }
 
+        @RequiresApi(Build.VERSION_CODES.R)
         override fun onHideCustomView() {
             (requireActivity().window.decorView as FrameLayout).removeView(customView)
             customView = null
+
+            requireActivity().window.insetsController?.show(WindowInsets.Type.systemBars())
+
             requireActivity().window.decorView.systemUiVisibility = originalSystemUiVisibility
             requireActivity().requestedOrientation = originalOrientation
             customViewCallback?.onCustomViewHidden()

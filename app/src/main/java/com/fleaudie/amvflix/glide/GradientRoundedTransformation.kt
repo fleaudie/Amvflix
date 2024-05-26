@@ -1,4 +1,4 @@
-package com.fleaudie.amvflix
+package com.fleaudie.amvflix.glide
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -37,15 +37,12 @@ class GradientRoundedTransformation(private val radius: Float) : BitmapTransform
         val paint = Paint()
         paint.isAntiAlias = true
 
-        // Draw the rounded corners
         val rectF = RectF(0f, 0f, width.toFloat(), height.toFloat())
         canvas.drawRoundRect(rectF, radius, radius, paint)
 
-        // Set the Xfermode to SRC_IN to only draw the bitmap inside the rounded corners
         paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
         canvas.drawBitmap(source, 0f, 0f, paint)
 
-        // Draw the gradient
         val gradientPaint = Paint()
         val gradient = LinearGradient(
             0f, height.toFloat(), 0f, height / 2f,

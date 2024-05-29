@@ -30,29 +30,32 @@
 
                 <TextView
                     android:id="@+id/txtListName"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:text="Favoriler"
+                    android:layout_marginEnd="10dp"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imgRemoveList"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/txtRemoveList"
-                    android:layout_width="wrap_content"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="10dp"
+                <ImageView
+                    android:id="@+id/imgRemoveList"
+                    android:layout_width="50dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="10dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:gravity="center"
-                    android:text="@string/remove"
-                    android:textColor="@color/warning"
-                    app:layout_constraintBottom_toBottomOf="@+id/txtListName"
+                    android:scaleType="centerInside"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/txtListName" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/delete_button"
+                    app:tint="@color/warning" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

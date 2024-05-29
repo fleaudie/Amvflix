@@ -17,7 +17,7 @@ class WatchListAdapter(var listNames: List<String>, private val onDeleteClickLis
                 val bundle = bundleOf("listName" to listName)
                 it.findNavController().navigate(R.id.action_myListFragment_to_listDetailFragment, bundle)
             }
-            binding.txtRemoveList.setOnClickListener {
+            binding.imgRemoveList.setOnClickListener {
                 onDeleteClickListener.invoke(listName)
             }
         }

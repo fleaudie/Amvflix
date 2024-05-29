@@ -14,6 +14,7 @@ import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fleaudie.amvflix.R
 import com.fleaudie.amvflix.adapters.WatchListAdapter
@@ -46,6 +47,12 @@ class MyListFragment : Fragment() {
             showAddListPopup()
         }
         getWatchLists()
+
+        binding.cardMyFav.setOnClickListener {
+            val listName = "favorites"
+            val action = MyListFragmentDirections.actionMyListFragmentToListDetailFragment(listName)
+            findNavController().navigate(action)
+        }
     }
 
     private fun setupRecyclerView() {
@@ -78,7 +85,7 @@ class MyListFragment : Fragment() {
         val popupWindow = PopupWindow(
             view,
             ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.MATCH_PARENT,
             true
         )
 
@@ -96,6 +103,10 @@ class MyListFragment : Fragment() {
         }
 
         popupWindow.showAtLocation(binding.root, Gravity.CENTER, 0, 0)
+
+        popupBinding.btnBackToMyLists.setOnClickListener {
+            popupWindow.dismiss()
+        }
     }
 
     private fun showRemoveListConfirmationDialog(listName: String) {

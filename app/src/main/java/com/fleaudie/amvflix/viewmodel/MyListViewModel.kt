@@ -35,7 +35,6 @@ class MyListViewModel @Inject constructor(private val repository: WatchListRepos
         }
     }
 
-
     fun removeWatchList(listName: String) {
         repository.removeWatchList(listName) { success, message ->
             if (success) {

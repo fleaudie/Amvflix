@@ -43,7 +43,7 @@ class ListDetailAdapter(
                 Glide.with(root.context)
                     .load(anime.animeLogo)
                     .into(imageView6)
-                txtRemoveFromList.setOnClickListener {
+                imgRemoveFromList.setOnClickListener {
                     onRemoveClick(anime)
                 }
             }

@@ -17,8 +17,8 @@ class WatchListDataSource {
                 "listName" to listName,
                 "createdAt" to FieldValue.serverTimestamp()
             )
-            firestore.collection("users").document(user.uid).collection("watchLists")
-                .add(watchListData)
+            firestore.collection("users").document(user.uid).collection("watchLists").document(listName)
+                .set(watchListData)
                 .addOnSuccessListener {
                     onComplete(true, null)
                 }
@@ -33,9 +33,11 @@ class WatchListDataSource {
     fun getWatchLists(onComplete: (Boolean, List<String>?, String?) -> Unit) {
         val currentUser = firebaseAuth.currentUser
         currentUser?.let { user ->
-            firestore.collection("users").document(user.uid).collection("watchLists")
+            val query = firestore.collection("users").document(user.uid).collection("watchLists")
+                .whereNotEqualTo("listName", "favorites")
                 .orderBy("listName")
-                .get()
+
+            query.get()
                 .addOnSuccessListener { querySnapshot ->
                     val listNames = querySnapshot.documents.map { it.getString("listName") ?: "" }
                     onComplete(true, listNames, null)
@@ -94,8 +96,8 @@ class WatchListDataSource {
                             "createdAt" to FieldValue.serverTimestamp()
                         )
                         firestore.collection("users").document(user.uid).collection("watchLists").document(listId)
-                            .collection("animeList")
-                            .add(animeData)
+                            .collection("animeList").document(animeName)
+                            .set(animeData)
                             .addOnSuccessListener {
                                 onComplete(true, null)
                             }

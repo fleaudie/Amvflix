@@ -65,6 +65,7 @@ class AnimeDetailFragment : Fragment() {
         val animeName = AnimeDetailFragmentArgs.fromBundle(requireArguments()).animeName
 
         viewModel.getAnimeDetailByName(animeName)
+        viewModel.checkIfInFavorites(animeName)
         viewModel.animeDetail.observe(viewLifecycleOwner) { animeDetail ->
             binding.apply {
                 txtAnimeName.text = animeDetail.animeName
@@ -130,6 +131,25 @@ class AnimeDetailFragment : Fragment() {
                     showAddToListPopup(animeDetail.animeName, animeDetail.animeLogo)
                 }
             }
+
+            viewModel.isFavorite.observe(viewLifecycleOwner) { isFavorite ->
+                if (isFavorite) {
+                    binding.btnFavAnime.setImageResource(R.drawable.favorite)
+                } else {
+                    binding.btnFavAnime.setImageResource(R.drawable.favorite_border)
+                }
+            }
+
+            val favAnimeName = animeDetail.animeName
+            val favAnimeLogo = animeDetail.animeLogo
+
+            binding.btnFavAnime.setOnClickListener {
+                if (viewModel.isFavorite.value == true) {
+                    viewModel.removeAnimeFromFavorites(favAnimeName, favAnimeLogo)
+                } else {
+                    viewModel.addAnimeToFavorites(favAnimeName, favAnimeLogo)
+                }
+            }
         }
     }
 
@@ -141,7 +161,7 @@ class AnimeDetailFragment : Fragment() {
         val popupWindow = PopupWindow(
             view,
             ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.MATCH_PARENT,
             true
         )
 
@@ -161,6 +181,10 @@ class AnimeDetailFragment : Fragment() {
         recyclerView.adapter = listAdapter
 
         popupWindow.showAtLocation(binding.root, Gravity.CENTER, 0, 0)
+
+        popupBinding.btnBackToDetail.setOnClickListener {
+            popupWindow.dismiss()
+        }
     }
 
     private fun startAutoScroll() {

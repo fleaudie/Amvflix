@@ -29,4 +29,13 @@
     <string name="no">Hayır</string>
     <string name="list_name_no_null">Liste adı boş olamaz</string>
     <string name="remove_list">Listeyi kaldırmak istediğinizden emin misiniz?</string>
+    <string name="button">Buton</string>
+    <string name="image">Resim</string>
+    <string name="anime_images">Animeden kareler</string>
+    <string name="favourites">Favoriler</string>
+    <string name="remove">Kaldır</string>
+    <string name="list_name">Liste Adı</string>
+    <string name="save">Kaydet</string>
+    <string name="add">Ekle</string>
+    <string name="enter_list_name">Lütfen listenizin adını girin.</string>
 </resources>

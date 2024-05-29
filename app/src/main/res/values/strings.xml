@@ -33,4 +33,8 @@
     <string name="anime_images">Images from anime</string>
     <string name="favourites">Favourites</string>
     <string name="remove">Remove</string>
+    <string name="list_name">List Name</string>
+    <string name="save">Save</string>
+    <string name="add">Add</string>
+    <string name="enter_list_name">Please enter the name of your list.</string>
 </resources>
